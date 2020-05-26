@@ -28,7 +28,7 @@ const AppContent = ( {userinfo, repos, starred, isFetching, handleSearch, handle
   </div>
 )
 
-AppContent.prototype = {
+AppContent.proptype = {
   userinfo: PropTypes.object,
   repos: PropTypes.array.isRequired,
   starred: PropTypes.array.isRequired,

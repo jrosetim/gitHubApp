@@ -1,4 +1,4 @@
-import React, {ProtoTypes} from 'react'
+import React, {PropTypes} from 'react'
 
 const Actions = ({handlerRepos, handlerStarred}) => (
   <div className='actions'>
@@ -7,8 +7,9 @@ const Actions = ({handlerRepos, handlerStarred}) => (
   </div>
 )
 
-// Actions.prototype ={
-//   handlerRepos: ProtoTypes.func
-// }
+Actions.proptype ={
+  handlerRepos: PropTypes.func.isRequired,
+  handlerStarred: PropTypes.func.isRequired
+}
 
 export default Actions

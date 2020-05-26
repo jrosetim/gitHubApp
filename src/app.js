@@ -6,7 +6,7 @@ class App extends Component {
   constructor (){
     super()
     this.state = {
-      userInfo: null,
+      userinfo: null,
       repos: [],
       starred: [],
       isFetching: false
@@ -34,7 +34,7 @@ class App extends Component {
       ajax().get(this.getGitHubApiUrl(value))
       .then((result) =>{
         this.setState({
-          userInfo: {
+          userinfo: {
             username: result.name,
             photo: result.avatar_url,
             login: result.login,
@@ -51,7 +51,7 @@ class App extends Component {
   }
 
   handlerRepos (type) {
-    const user = this.state.userInfo.login
+    const user = this.state.userinfo.login
     ajax().get(this.getGitHubApiUrl(user, type))
     .then((result) => {
       console.log(result);
@@ -64,10 +64,12 @@ class App extends Component {
 
   render(){
     return <AppContent
-      userinfo={this.state.userInfo}
-      repos={this.state.repos}
-      starred={this.state.starred}
-      isFetching={this.state.isFetching}
+      // userinfo={this.state.userinfo}
+      // repos={this.state.repos}
+      // starred={this.state.starred}
+      // isFetching={this.state.isFetching}
+      //a linha abaixo passa todos so states para frente com spread, substituindo as linhas acima
+      { ...this.state }
       handleSearch={ (e) => this.handleSearch(e) }
       handlerRepos={ () => this.handlerRepos('repos')}
       handlerStarred={() => this.handlerRepos('starred') }
