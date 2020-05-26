@@ -12,6 +12,7 @@ const Search = ({isDisabled, handleSearch}) => (
 )
 
 Search.prototype ={
+  isDisabled: PropTypes.bool.isRequired,
   handleSearch: PropTypes.func.isRequired
 }
 
